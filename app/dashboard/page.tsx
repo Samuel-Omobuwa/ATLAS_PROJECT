@@ -2,14 +2,19 @@
 
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
+import { useBoards } from "@/lib/hooks/useBoards";
 import { useUser } from "@clerk/nextjs";
 import { Plus } from "lucide-react";
 
 export default function DashboardPage() {
   const { user } = useUser();
+  const (createBoard) = useBoards()
 
 
-  
+  const handleCreateBoard = async () => {
+    // Check to see if user can create a board
+    await createBoard()
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
