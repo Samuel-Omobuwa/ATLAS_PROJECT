@@ -88,8 +88,8 @@ export const boardDataService = {
   }) {
     const board = await boardService.createBoards({
       title: boardData.title,
-      description: boardData.description,
-      color: boardData.color || "bg-blue-500"
+      description: boardData.description ?? null,
+      color: boardData.color || "bg-blue-500",
       userId: boardData.userId,
     });
 
